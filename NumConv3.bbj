@@ -1,0 +1,444 @@
+declare BBjAPI api!
+declare BBjSysGui sysgui!
+declare BBjTopLevelWindow wnd!
+declare BBjButton btn!
+
+api! = BBjAPI()
+
+sysgui! = api!.openSysGui("X0")
+
+myWindow! = sysgui!.addWindow(10,10,640,480,"Number Converter")
+
+myInputN! = myWindow!.addInputN(250,30,60,90,20)
+
+
+Text1! = myWindow!.addStaticText(700,30,30,100,25,"Enter a Number")
+myButton! = myWindow!.addButton(101,30,110,100,40,"CONVERT",$0800$)
+myWindow!.setCallback(BBjAPI.ON_CLOSE,"byebye")
+myButton!.setCallback(myButton!.ON_BUTTON_PUSH,"pushed1")
+                                             
+process_events
+
+pushed1:
+	num1$ = myInputN!.getText()
+	x = num(num1$)
+	gosub convert
+
+return
+
+convert:
+
+
+r = MOD(x,10)  
+
+	IF r = 0 THEN
+		p$ = ""
+	ENDIF
+
+	IF r = 1 THEN
+		p$ = "ONE "
+	ENDIF
+
+	IF r = 2 THEN
+		p$ = "TWO "
+	ENDIF
+
+	IF r = 3 THEN
+		p$ = "THREE "
+	ENDIF
+
+	IF r = 4 THEN
+		p$ = "FOUR "
+	ENDIF
+
+	IF r = 5 THEN
+		p$ = "FIVE "
+	ENDIF
+
+	IF r = 6 THEN
+		p$ = "SIX "
+	ENDIF
+
+	IF r = 7 THEN
+		p$ = "SEVEN "
+	ENDIF
+
+	IF r = 8 THEN
+		p$ = "EIGHT "
+	ENDIF
+
+	IF r = 9 THEN
+		p$ = "NINE "
+	ENDIF
+
+x = int (x/10)
+REM ----------------------------------------------------------------------------
+
+r = MOD(x,10) 
+
+	IF r = 0 THEN
+		q$ = ""
+	ENDIF
+
+	IF r = 2 THEN
+		q$ = "TWENTY "
+	ENDIF
+
+	IF r = 3 THEN
+		q$ = "THIRTY "
+	ENDIF
+
+	IF r = 4 THEN
+		q$ = "FORTY "
+	ENDIF
+
+	IF r = 5 THEN
+		q$ = "FIFTY "
+	ENDIF
+
+	IF r = 6 THEN
+		q$ = "SIXTY "
+	ENDIF
+
+	IF r = 7 THEN
+		q$ = "SEVENTY "
+	ENDIF
+
+	IF r = 8 THEN
+		q$ = "EIGHTY "
+	ENDIF
+
+	IF r = 9 THEN
+		q$ = "NINETY "
+	ENDIF
+X = INT(X/10)
+
+REM ----------------------------------------------------------------------	
+
+r = MOD(x,10)  
+
+	IF r = 0 THEN
+		r$ = ""
+	ENDIF
+
+	IF r = 1 THEN
+		r$ = "ONE HUNDRED "
+	ENDIF
+
+	IF r = 2 THEN
+		r$ = "TWO HUNDRED "
+	ENDIF
+
+	IF r = 3 THEN
+		r$ = "THREE HUNDRED "
+	ENDIF
+
+	IF r = 4 THEN
+		r$ = "FOUR HUNDRED "
+	ENDIF
+
+	IF r = 5 THEN
+		r$ = "FIVE HUNDRED "
+	ENDIF
+
+	IF r = 6 THEN
+		r$ = "SIX HUNDRED "
+	ENDIF
+
+	IF r = 7 THEN
+		r$ = "SEVEN HUNDRED "
+	ENDIF
+
+	IF r = 8 THEN
+		r$ = "EIGHT HUNDRED "
+	ENDIF
+
+	IF r = 9 THEN
+		r$ = "NINE HUNDRED "
+	ENDIF
+
+x = int (x/10)
+	
+a$ = r$+q$+p$
+
+REM ============================================================================
+
+r = MOD(x,10)  
+
+	IF r = 0 THEN
+	s$ = ""
+	ENDIF
+
+	IF r = 1 THEN
+		s$ = "ONE "
+	ENDIF
+
+	IF r = 2 THEN
+		s$ = "TWO "
+	ENDIF
+
+	IF r = 3 THEN
+		s$ = "THREE "
+	ENDIF
+
+	IF r = 4 THEN
+		s$ = "FOUR "
+	ENDIF
+
+	IF r = 5 THEN
+		s$ = "FIVE "
+	ENDIF
+
+	IF r = 6 THEN
+		s$ = "SIX "
+	ENDIF
+
+	IF r = 7 THEN
+		s$ = "SEVEN "
+	ENDIF
+
+	IF r = 8 THEN
+		s$ = "EIGHT "
+	ENDIF
+
+	IF r = 9 THEN
+		s$ = "NINE "
+	ENDIF
+
+x = int (x/10)
+	
+REM ----------------------------------------------------------------------------
+
+r = MOD(x,10) 
+
+	IF r = 0 THEN
+		t$ = ""
+	ENDIF
+
+	IF r = 2 THEN
+		t$ = "TWENTY "
+	ENDIF
+
+	IF r = 3 THEN
+		t$ = "THIRTY "
+	ENDIF
+
+	IF r = 4 THEN
+		t$ = "FORTY "
+	ENDIF
+
+	IF r = 5 THEN
+		t$ = "FIFTY "
+	ENDIF
+
+	IF r = 6 THEN
+		t$ = "SIXTY "
+	ENDIF
+
+	IF r = 7 THEN
+		t$ = "SEVENTY "
+	ENDIF
+
+	IF r = 8 THEN
+		t$ = "EIGHTY "
+	ENDIF
+
+	IF r = 9 THEN
+		t$ = "NINETY "
+	ENDIF
+X = INT(X/10)	
+
+b$ = t$ + s$ + " THOUSAND "
+
+rem ----------------------------------------------------------------------------
+
+
+r = MOD(x,10)  
+
+	IF r = 0 THEN
+		x$ = ""
+	ENDIF
+
+	IF r = 1 THEN
+		x$ = "ONE "
+	ENDIF
+
+	IF r = 2 THEN
+		x$ = "TWO "
+	ENDIF
+
+	IF r = 3 THEN
+		x$ = "THREE "
+	ENDIF
+
+	IF r = 4 THEN
+		x$ = "FOUR "
+	ENDIF
+
+	IF r = 5 THEN
+		x$ = "FIVE "
+	ENDIF
+
+	IF r = 6 THEN
+		x$ = "SIX "
+	ENDIF
+
+	IF r = 7 THEN
+		x$ = "SEVEN "
+	ENDIF
+
+	IF r = 8 THEN
+		x$ = "EIGHT "
+	ENDIF
+
+	IF r = 9 THEN
+		x$ = "NINE "
+	ENDIF
+
+x = int (x/10)
+	
+rem ----------------------------------------------------------------------------
+
+r = MOD(x,10) 
+
+	IF r = 0 THEN
+		y$ = ""
+	ENDIF
+
+	IF r = 2 THEN
+		y$ = "TWENTY "
+	ENDIF
+
+	IF r = 3 THEN
+		y$ = "THIRTY "
+	ENDIF
+
+	IF r = 4 THEN
+		y$ = "FORTY "
+	ENDIF
+
+	IF r = 5 THEN
+		y$ = "FIFTY "
+	ENDIF
+
+	IF r = 6 THEN
+		y$ = "SIXTY "
+	ENDIF
+
+	IF r = 7 THEN
+		y$ = "SEVENTY "
+	ENDIF
+
+	IF r = 8 THEN
+		y$ = "EIGHTY "
+	ENDIF
+
+	IF r = 9 THEN
+		y$ = "NINETY "
+	ENDIF
+X = INT(X/10)
+c$ = y$ + x$ + "LAKH "
+
+REM ----------------------------------------------------------------------------
+
+r = MOD(x,10)
+
+IF r = 0 THEN
+	p$ = ""
+	ENDIF
+
+	IF r = 1 THEN
+		m$ = "ONE "
+	ENDIF
+
+	IF r = 2 THEN
+		m$ = "TWO "
+	ENDIF
+
+	IF r = 3 THEN
+		m$ = "THREE "
+	ENDIF
+
+	IF r = 4 THEN
+		m$ = "FOUR "
+	ENDIF
+
+	IF r = 5 THEN
+		m$ = "FIVE "
+	ENDIF
+
+	IF r = 6 THEN
+		m$ = "SIX "
+	ENDIF
+
+	IF r = 7 THEN
+		m$ = "SEVEN "
+	ENDIF
+
+	IF r = 8 THEN
+		m$ = "EIGHT "
+	ENDIF
+
+	IF r = 9 THEN
+		m$ = "NINE "
+	ENDIF
+
+x = int (x/10)
+
+rem ----------------------------------------------------------------------------
+
+r = MOD(x,10) 
+
+	IF r = 0 THEN
+		n$ = ""
+	ENDIF
+
+	IF r = 1 THEN
+		n$ = "ONE "
+	ENDIF
+
+	IF r = 2 THEN
+		n$ = "TWENTY "
+	ENDIF
+
+	IF r = 3 THEN
+		n$ = "THIRTY "
+	ENDIF
+
+	IF r = 4 THEN
+		n$ = "FORTY "
+	ENDIF
+
+	IF r = 5 THEN
+		n$ = "FIFTY "
+	ENDIF
+
+	IF r = 6 THEN
+		n$ = "SIXTY "
+	ENDIF
+
+	IF r = 7 THEN
+		n$ = "SEVENTY "
+	ENDIF
+
+	IF r = 8 THEN
+		n$ = "EIGHTY "
+	ENDIF
+
+	IF r = 9 THEN
+		n$ = "NINETY "
+	ENDIF
+	
+X = INT(X/10)
+	
+d$ = n$ + m$ + "CRORE "
+
+a = msgbox(d$ + c$ + b$ + a$)
+
+
+byebye:
+	release
+
+
+
+

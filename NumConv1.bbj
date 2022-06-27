@@ -1,0 +1,91 @@
+declare BBjAPI api!
+declare BBjSysGui sysgui!
+declare BBjTopLevelWindow wnd!
+
+api! = BBjAPI()
+
+TITLE$="Num 2 Word covertor"
+
+sysgui! = api!.openSysGui("X0")
+
+myWindow! = sysgui!.addWindow(10,10,640,480,TITLE$)
+
+myInputN! = myWindow!.addInputN(250,30,60,90,20)
+
+a! = myWindow!.addStaticText(700,30,30,100,25,"Enter a Number")
+myButton! = myWindow!.addButton(101,30,110,100,40,"CONVERT",$0800$)
+myWindow!.setCallback(BBjAPI.ON_CLOSE,"byebye")
+myButton!.setCallback(myButton!.ON_BUTTON_PUSH,"pushed")
+
+process_events
+
+pushed:
+
+
+ num1$ = myInputN!.getText()
+ 
+ gosub convert
+return
+
+convert:
+
+REM this will conver the entered number to words
+num1$ = cvs(str num1$,3)
+
+while num1>0
+r = MOD(num1,10)
+a = int(a*10 + r)
+num1 = int(num1/10)
+wend                                                
+
+while a>0
+
+r = MOD(a,10)
+
+	IF r = 1 THEN
+		PRINT "ONE"
+	ENDIF
+
+	IF r = 2 THEN
+		PRINT "TWO"
+	ENDIF
+
+	IF r = 3 THEN
+		PRINT "THREE"
+	ENDIF
+
+	IF r = 4 THEN
+		PRINT "FOUR"
+	ENDIF
+
+	IF r = 5 THEN
+		PRINT "FIVE"
+	ENDIF
+
+	IF r = 6 THEN
+		PRINT "SIX"
+	ENDIF
+
+	IF r = 7 THEN
+		PRINT "SEVEN"
+	ENDIF
+
+	IF r = 8 THEN
+		PRINT "EIGHT"
+	ENDIF
+
+	IF r = 9 THEN
+		PRINT "NINE"
+	ENDIF
+
+	a = int (a/10)
+	wend
+
+
+a= msgbox(x$)
+return
+
+byebye:
+	release
+	
+	
